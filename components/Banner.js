@@ -20,7 +20,13 @@ const Banner = () => {
             <div><Image loading="lazy" src="https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="banner 3" height={10} width={500}/></div>
 
         </Carousel>
-        <div className='absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20'/>
+         <div className="absolute top-1/2 w-full text-center">
+          <p className='text-black font-bold
+           text-5xl'>Look no further</p>
+          <button className='rounded-full py-4 px-6 bg-green-300 text-white shadow-md hover:shadow-2xl '><h3>Check this out</h3></button>
+        </div>
+
+
     </div>
   )
 }
