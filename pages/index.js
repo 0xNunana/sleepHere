@@ -8,11 +8,12 @@ import Footer from '../components/Footer'
 import Smallcard from '../components/Smallcard'
 import Largecard from '../components/Largecard'
 import Mediumcard from '../components/Mediumcard'
+import Partner from '../components/Partner'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({small}) {
+export default function Home({small,view,partners}) {
   return (
     <div>
       <Head>
@@ -26,19 +27,39 @@ export default function Home({small}) {
       <main className=" bg-gray-100 ">
       
   
-      
-      <section>
+      <div className='text-3xl font-semibold p-3'>Available Accomodations</div>
+      <section className='max-w-screen-lg mx-auto  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
         {small?.map(({img,location,distance})=>(
           <Smallcard key={img} img={img} location={location} distance={distance}/>
         ))}
       </section>
       <section>
+        <div className='text-3xl font-bold p-3'>Explore 🇬🇭  </div>
         {/* large */}
-        <Largecard/>
+        {/* <div className="min-h-[10px]">
+          <Largecard/>
+        </div> */}
+       
       </section>
-      <section>
+      <section className='flex space-x-5'>
         {/* medium */}
-        <Mediumcard/>
+        {view?.map(({view,img})=>(
+        <Mediumcard 
+        key={img}
+        view={view}
+        img={img}
+        />))}
+        
+      </section>
+      {/* partners */}
+      <div className='text-3xl font-bold text-center pb-4'>Partners</div>
+      <div className='flex'>
+        {partners?.map(({brand})=>(
+          <Partner key={brand} img={brand}/>
+        ))}
+      </div>
+      <section>
+
       </section>
 
        
@@ -50,8 +71,9 @@ export default function Home({small}) {
  export async function getStaticProps(){
   
 const small = await fetch("https://www.jsonkeeper.com/b/XJ3K").then((res)=>res.json());
-
+ const view =await fetch ("https://www.jsonkeeper.com/b/H7XX").then((res)=>res.json());
+  const partners = await fetch ("https://www.jsonkeeper.com/b/CZH4").then((res)=>res.json());
 return{
-  props:{small}
+  props:{small,view,partners}
 }
  }
