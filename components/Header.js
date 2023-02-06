@@ -61,7 +61,7 @@ const ranger={
             {session ? (`Welcome,${session.user.name}`):"SignIn" }</h4></div>
         <div  >🇬🇭 </div>
       </div>
-      {searchinfo && (<div className='mx-auto'>
+      {searchinfo && (<div className='pl-10'>
         <DateRangePicker ranges={[ranger]} rangeColors={['#92FB98']} minDate={new Date()} onChange={change}/>
         <div className='flex'>
           <section className='flex-grow pt-2'>Guest: 
