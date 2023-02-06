@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Searchcard from '../components/Searchcard'
 import { format } from 'date-fns'
 import { useRouter } from 'next/router'
+import Mapper from '../components/Mapper'
 
 const search = ({searchRes}) => {
   const router = useRouter();
@@ -18,17 +19,20 @@ const search = ({searchRes}) => {
     <div>
       <Header placeholder={`${location} |${formatstart}|${formatend} | ${guest}`}/>
       <main >
-        <div className='max-w-screen-lg mx-auto bg-slate-300'>
+        <div className='max-w-screen-lg mx-auto p-6 bg-slate-300 text-3xl rounded-b-lg'>
+          
           Search Results for {location}
         </div>
         
-        <div className='flex'> 
-          <div>search
+        <div className='flex  m-3'> 
+          <div className='flex-col'>search
             {searchRes?.map(({img,title,description,price,long,lat, location})=>(
-              <Searchcard key={img} img={img} title={title} description={description}/>
+              <Searchcard key={img} img={img} title={title} description={description} location={location}/>
             ))}
           </div>
-          <div>map</div>
+          <div className='hidden xl:inline-flex xl:min-w-[500px]'>
+            <Mapper searchRes={searchRes}/>
+          </div>
         </div>
 
       </main>
@@ -40,7 +44,7 @@ const search = ({searchRes}) => {
 export default search
 
 export async function getServerSideProps(){
-  const searchRes = await fetch("https://www.jsonkeeper.com/b/3I45").then((res)=>res.json());
+  const searchRes = await fetch("https://www.jsonkeeper.com/b/G6W1").then((res)=>res.json());
   return{
     props:{searchRes}
   }
