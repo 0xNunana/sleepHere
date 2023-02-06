@@ -2,6 +2,7 @@ import React from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from 'next/image';
+import { signIn } from 'next-auth/react';
 const Banner = () => {
   return (
     <div className='relative'>
@@ -21,9 +22,9 @@ const Banner = () => {
 
         </Carousel>
          <div className="absolute top-1/2 w-full text-center">
-          <p className='text-black font-bold
+          <p className='text-white font-bold
            text-5xl'>Look no further</p>
-          <button className='rounded-full py-4 px-6 bg-green-300 text-white shadow-md hover:shadow-2xl '><h3>Check this out</h3></button>
+          <button onClick={signIn}className='rounded-full py-4 px-6 bg-green-300 text-white shadow-md hover:shadow-2xl '><h3>Check this out</h3></button>
         </div>
 
 
