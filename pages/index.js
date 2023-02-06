@@ -9,6 +9,7 @@ import Smallcard from '../components/Smallcard'
 import Largecard from '../components/Largecard'
 import Mediumcard from '../components/Mediumcard'
 import Partner from '../components/Partner'
+import { signIn } from 'next-auth/react'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -33,15 +34,22 @@ export default function Home({small,view,partners}) {
           <Smallcard key={img} img={img} location={location} distance={distance}/>
         ))}
       </section>
-      <section>
-        <div className='text-3xl font-bold p-3'>Explore 🇬🇭  </div>
-        {/* large */}
-        {/* <div className="min-h-[10px]">
-          <Largecard/>
-        </div> */}
+      <section className='bg-green-400 rounded-lg ml-4'>
+        < div className='bg-white text-center m-10 pt-7 pb-3'>
+          <p className='text-3xl font-serif'>Ready to experience the best?</p>
+          <div className='flex space-x-4 '>
+            <button className='bg-green-200 flex-grow rounded-r-lg font-semibold' onClick={signIn}>Sign-In</button>
+          <button className='bg-green-300 flex-grow rounded-l-lg font-semibold'>Sign-up</button>
+          </div>
+          
+        
+        </div>
+       </section>
+     
        
-      </section>
-      <section className='flex space-x-5'>
+    <div className='text-3xl font-bold p-3'>Explore 🇬🇭  </div>
+      <section className='flex space-x-5 ml-4'>
+        
         {/* medium */}
         {view?.map(({view,img})=>(
         <Mediumcard 
@@ -49,11 +57,19 @@ export default function Home({small,view,partners}) {
         view={view}
         img={img}
         />))}
-        
+
       </section>
-      {/* partners */}
-      <div className='text-3xl font-bold text-center pb-4'>Partners</div>
-      <div className='flex'>
+        
+       
+        <div className="min-h-[10px]">
+          <Largecard/>
+        </div> 
+       
+      
+        
+     
+      <div className='text-3xl font-bold text-center pb-4 mt-4'>Partners</div>
+      <div className='flex mx-4 pb-4 space-x-2'>
         {partners?.map(({brand})=>(
           <Partner key={brand} img={brand}/>
         ))}
