@@ -9,15 +9,16 @@ import Mapper from '../components/Mapper'
 const search = ({searchRes}) => {
   const router = useRouter();
   const {location,startDate,endDate,guest}=router.query
-  const formatstart =format(new Date(startDate),"dd MMM yyyy")
-  const formatend =format(new Date(endDate),"dd MMM yyyy")
+  // const formatstart =format(new Date(startDate),"dd MMM yyyy")
+  // const formatend =format(new Date(endDate),"dd MMM yyyy")
 
 
 
 
   return (
     <div>
-      <Header placeholder={`${location} |${formatstart}|${formatend} | ${guest}`}/>
+      <Header placeholder={`${location}
+       | ${guest}`}/>
       <main >
         <div className='max-w-screen-lg mx-auto p-6 bg-slate-300 text-3xl rounded-b-lg'>
           
