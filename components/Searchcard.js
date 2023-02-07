@@ -12,13 +12,13 @@ const Searchcard = ({img,title,description,price,long,lat, location,id}) => {
   const booked =()=>{
     const room ={id,img,title,description,price,location}
 
-    dispatch(addRoom(room))
+    dispatch(addRoom(room));
     router.push("/checkout")
 
   }
   
   return (
-    <div onClick={booked}className='flex items-center space-x-2 p-3 hover:scale-105 '>
+    <div onClick={booked}className='flex items-center space-x-2 p-3 hover:scale-105 cursor-pointer'>
       <div>
         <Image className="rounded-3xl"src={img} width={300} height={20} alt="Search output"/></div>
       <div className='bg-gray-200 p-3 rounded-r-2xl'>
