@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState ={
-    item:[]
+    items:[],
 
 }
 
@@ -9,11 +9,14 @@ export const roomSlice= createSlice({
     name:"room",
     initialState,
     reducers:{
-        addRoom:(state,action)=>{},
+        addRoom:(state, action)=>{
+        state.items=[...state.items,action.payload]
+        },
         removeRoom:(state,action)=>{}
     }
 })
-export const{addRoom,removeRoom} = roomSlice.actions;
-export const selectRoom=(state)=>state.room.item;
+
+export const{addRoom, removeRoom} = roomSlice.actions;
+export const selectRoom=(state)=>state.room.items;
 
 export default  roomSlice.reducer
