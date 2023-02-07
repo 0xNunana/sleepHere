@@ -13,6 +13,7 @@ const nextConfig = {
   },
   env:{
     map_key:"pk.eyJ1IjoiMHhudW5hbmEiLCJhIjoiY2xkc29sZDRjMHVxeTN4cXNvMmJuamd4aSJ9.NLo83bhzfhqz1ue9q3Nc5w",
+    stripe_pk: process.env.Stripe_pk
   },
   reactStrictMode: true,
 }
