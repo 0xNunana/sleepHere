@@ -25,9 +25,10 @@ const search = ({searchRes}) => {
         </div>
         
         <div className='flex  m-3'> 
-          <div className='flex-col'>search
-            {searchRes?.map(({img,title,description,price,long,lat, location})=>(
-              <Searchcard key={img} img={img} title={title} description={description} location={location}/>
+          <div className='flex-col'>
+            {searchRes?.map(({img,title,description,price,long,lat, location,id})=>(
+              <Searchcard key={id} img={img} title={title} description={description} 
+              location={location} price={price} id={id}/>
             ))}
           </div>
           <div className='hidden xl:inline-flex xl:min-w-[500px]'>
@@ -44,7 +45,7 @@ const search = ({searchRes}) => {
 export default search
 
 export async function getServerSideProps(){
-  const searchRes = await fetch("https://www.jsonkeeper.com/b/G6W1").then((res)=>res.json());
+  const searchRes = await fetch("https://www.jsonkeeper.com/b/QEDC").then((res)=>res.json());
   return{
     props:{searchRes}
   }
